@@ -63,7 +63,8 @@ func (r *Request) execSelections(ctx context.Context, sels []selected.Selection,
 	var fields []*fieldToExec
 	collectFieldsToResolve(sels, resolver, &fields, make(map[string]*fieldToExec))
 
-	if async {
+	// if async {
+	if true {
 		var wg sync.WaitGroup
 		wg.Add(len(fields))
 		for _, f := range fields {
@@ -234,7 +235,8 @@ func (r *Request) execSelectionSet(ctx context.Context, sels []selected.Selectio
 	case *common.List:
 		l := resolver.Len()
 
-		if selected.HasAsyncSel(sels) {
+		// if selected.HasAsyncSel(sels) {
+		if true {
 			var wg sync.WaitGroup
 			wg.Add(l)
 			entryouts := make([]bytes.Buffer, l)
