@@ -8,6 +8,7 @@ type QueryError struct {
 	Message       string        `json:"message"`
 	Locations     []Location    `json:"locations,omitempty"`
 	Path          []interface{} `json:"path,omitempty"`
+	Code          int           `json:"code,omitempty"`
 	Rule          string        `json:"-"`
 	ResolverError error         `json:"-"`
 }

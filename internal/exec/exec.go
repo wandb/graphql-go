@@ -187,6 +187,9 @@ func execFieldSelection(ctx context.Context, r *Request, f *fieldToExec, path *p
 			err := errors.Errorf("%s", resolverErr)
 			err.Path = path.toSlice()
 			err.ResolverError = resolverErr
+			if c, ok := callOut[1].Interface().(interface{ Code() int }); ok {
+				err.Code = c.Code()
+			}
 			return err
 		}
 		return nil
